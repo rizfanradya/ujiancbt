@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model admin {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  username  String
+  password  String
+}
+
+model siswa {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  nomorUjian   String
+  nama         String
+  nisNisn      String   @unique
+  sesiUjian    String
+  ruangUjian   String
+  kodeLevel    String
+  kodeKelas    String
+  jenisKelamin String
+  password     String
+  jurusan      String
+  foto         String
+  agama        String
+  pilihan      String
+  kodeSekolah  String
+  namaKelas    String
+}
