@@ -1,13 +1,14 @@
 import LoginRegisterRouteSecure from "@/app/components/loginRegisterRouteSecure";
 import Link from "next/link";
 import FormLogin from "./form";
+import LoginCarousel from "./carousel";
 
 export default function AdminLogin() {
   return (
     <LoginRegisterRouteSecure>
       <title>Ujian CBT - Admin Login</title>
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:h-screen relative">
-        <div className="bg-[url('/bgloginadmin.jpg')] h-96 lg:h-full bg-no-repeat bg-cover bg-center"></div>
+        <LoginCarousel />
 
         <div>
           <div className="bg-base-300 py-2 text-slate-700">
@@ -38,7 +39,7 @@ export default function AdminLogin() {
               </h1>
               <p className="text-slate-500 text-xs lg:text-sm">
                 Selamat datang di aplikasi CBT Test Indonesia. Silahkan masukkan
-                ID Server dan periksa registrasi yang telah diberikan
+                Username dan Password yang telah diberikan
               </p>
             </div>
 

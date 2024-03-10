@@ -18,7 +18,7 @@ export default function SideNav({
     <>
       <title>{`Admin - ${docTitle}`}</title>
       <div className="flex items-center justify-between bg-slate-700 text-white py-5 px-2 md:px-6 fixed w-full z-10">
-        <div className="flex items-center gap-2">
+        <Link href={"/"} className="flex items-center gap-2">
           <Image alt="logo" src={"/tutwuri.png"} width={60} height={60} />
           <div className="text-white">
             <p className="font-bold text-xl -mb-1 font-sans">
@@ -26,7 +26,7 @@ export default function SideNav({
             </p>
             <p>CBT Application</p>
           </div>
-        </div>
+        </Link>
 
         <div className="flex items-center gap-2 sm:gap-4">
           <div className="text-info font-semibold sm:text-2xl">AKTIF</div>
@@ -40,25 +40,33 @@ export default function SideNav({
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
 
         <div className="drawer-content">
-          <div className="pt-24 pb-10">
-            <div className="breadcrumbs px-2 border-b border-black/5">
-              <ul>
-                {breadcrumbs.map((doc, index) => (
-                  <li className="text-slate-500/80" key={index}>
-                    <Link href={`/admin/${doc.path}`}>{doc.name}</Link>
-                  </li>
-                ))}
-              </ul>
+          <div className="pt-24 px-3 bg-slate-700">
+            <div className="bg-white">
+              <div className="breadcrumbs px-2 border-b border-black/5">
+                <ul>
+                  {breadcrumbs.map((doc, index) => (
+                    <li className="text-slate-500/80" key={index}>
+                      <Link href={`/admin/${doc.path}`}>{doc.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex">
+                <ul className="menu max-w-72 w-full hidden lg:block border border-black/5 my-4 ml-4 ">
+                  <NavlinkItems />
+                  <Logout />
+                </ul>
+                <div className="pl-7 p-8 border t-10 border-black/5 m-4 h-max w-full">
+                  {children}
+                </div>
+              </div>
             </div>
 
-            <div className="flex">
-              <ul className="menu max-w-72 w-full hidden lg:block border border-black/5 my-4 ml-4 ">
-                <NavlinkItems />
-                <Logout />
-              </ul>
-              <div className="pl-7 p-8 border t-10 border-black/5 m-4 h-max w-full">
-                {children}
-              </div>
+            <div className="flex items-center justify-center bg-slate-700 w-full text-sm">
+              <span className="bg-white my-3 py-2 text-center w-full">
+                CBT TEST Indonesia - Copyright © 2023-2024
+              </span>
             </div>
           </div>
         </div>

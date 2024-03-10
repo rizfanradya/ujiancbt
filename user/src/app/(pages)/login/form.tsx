@@ -61,7 +61,7 @@ export default function FormLogin() {
   return (
     <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
       <div className="flex gap-3 items-center justify-between border-b w-30 mt-30">
-        <FaUserCircle size={"1.5em"} className="text-slate-500" />
+        <FaUserCircle size={"1.5em"} className="text-gray-300" />
         <input
           id="Username"
           placeholder="Username"
@@ -73,8 +73,8 @@ export default function FormLogin() {
         />
       </div>
 
-      <div className="flex gap-3 items-center justify-between border-b text-normal ">
-        <div className="bg-slate-500 rounded-full p-1 text-white">
+      <div className="flex gap-3 items-center justify-between border-b text-normal">
+        <div className="bg-gray-300 rounded-full p-1 text-white">
           <AiFillLock size={16} />
         </div>
         <input
@@ -89,7 +89,7 @@ export default function FormLogin() {
       </div>
 
       <div className="flex gap-3 items-center justify-between border-b ">
-        <div className="bg-slate-500 rounded-full p-[5px] text-white">
+        <div className="bg-gray-300 rounded-full p-[5px] text-white">
           <FaBook size={15} />
         </div>
         <select
