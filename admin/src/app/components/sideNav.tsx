@@ -46,7 +46,7 @@ export default function SideNav({
                 <ul>
                   {breadcrumbs.map((doc, index) => (
                     <li className="text-slate-500/80" key={index}>
-                      <Link href={`/admin/${doc.path}`}>{doc.name}</Link>
+                      <Link href={`/${doc.path}`}>{doc.name}</Link>
                     </li>
                   ))}
                 </ul>

@@ -16,7 +16,7 @@ export default function NavlinkItems() {
                 <ul>
                   {doc.subLink.map((docSub, indexSub) => (
                     <li key={indexSub}>
-                      <Link href={`/admin/${docSub.path}`}>
+                      <Link href={`/${docSub.path}`}>
                         <span className="text-blue-500">{docSub.icon}</span>
                         <span className="text-slate-500/90">{docSub.name}</span>
                       </Link>
@@ -29,7 +29,7 @@ export default function NavlinkItems() {
         } else {
           return (
             <li key={index}>
-              <Link href={`/admin/${doc.path}`}>
+              <Link href={`/${doc.path}`}>
                 <span className="text-blue-500">{doc.icon}</span>
                 <span className="text-slate-500/90">{doc.name}</span>
               </Link>

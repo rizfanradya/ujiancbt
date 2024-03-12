@@ -2,6 +2,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 const settings = {
   infinite: true,
@@ -18,10 +19,14 @@ export default function LoginCarousel() {
   return (
     <Slider {...settings}>
       {dataCarousel.map((doc, index) => (
-        <div
-          key={index}
-          className={`bg-[url('/carousel/${doc.src}')] h-96 lg:h-screen bg-no-repeat bg-cover bg-center`}
-        ></div>
+        <div key={index} className="relative h-screen">
+          <Image
+            src={`/carousel/${doc.src}`}
+            alt={doc.src}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
       ))}
     </Slider>
   );
