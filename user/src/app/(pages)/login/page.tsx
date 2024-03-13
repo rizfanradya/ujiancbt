@@ -45,8 +45,14 @@ export default async function Login() {
                 </p>
                 <FormLogin />
                 <div className="font-semibold text-xs text-red-500 italic text-center pt-2">
-                  <p>* Username Wajib Diisi</p>
-                  <p>* Password Wajib Diisi</p>
+                  <span className="flex items-center gap-14 justify-center">
+                    <span>*</span>
+                    <span>Username Wajib Diisi</span>
+                  </span>
+                  <span className="flex items-center gap-14 justify-center">
+                    <span>*</span>
+                    <span>Password Wajib Diisi</span>
+                  </span>
                 </div>
               </div>
             </div>

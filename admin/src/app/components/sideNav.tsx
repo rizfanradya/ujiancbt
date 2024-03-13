@@ -4,8 +4,10 @@ import Image from "next/image";
 import { RiMenu3Fill } from "react-icons/ri";
 import NavlinkItems from "./navlinkItems";
 import Logout from "./logout";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
-export default function SideNav({
+export default async function SideNav({
   children,
   docTitle,
   breadcrumbs,
@@ -14,6 +16,11 @@ export default function SideNav({
   docTitle: string;
   breadcrumbs: { name: string; path: string }[];
 }) {
+  const session: any = await getServerSession();
+  if (!session) {
+    redirect("/login");
+  }
+
   return (
     <>
       <title>{`Admin - ${docTitle}`}</title>
@@ -57,7 +64,7 @@ export default function SideNav({
                   <NavlinkItems />
                   <Logout />
                 </ul>
-                <div className="pl-7 p-8 border t-10 border-black/5 m-4 h-max w-full">
+                <div className="pl-7 p-8 border t-10 border-black/5 m-4 h-max w-full overflow-hidden">
                   {children}
                 </div>
               </div>
