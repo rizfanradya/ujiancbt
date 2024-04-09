@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3004",
+    "dev": "next dev -p 3002",
     "build": "next build",
-    "start": "next start -p 3005",
+    "start": "next start -p 3002",
     "lint": "next lint",
     "initdb": "npx prisma migrate dev && npx prisma db push && npx prisma generate"
   },
