@@ -1,6 +1,5 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import prisma from "@/utils/prisma";
 
 const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
@@ -22,12 +21,12 @@ const authOptions: NextAuthOptions = {
           password: string;
         };
 
-        const user = await prisma.siswa.findFirst({
-          where: { nisNisn: username },
-        });
-        if (!user!.nisNisn) throw new Error("email mismatch");
-        if (user?.password !== password) throw new Error("password mismatch");
-        return { username: user!.nisNisn, id: user!.id.toString() };
+        // const user = await prisma.siswa.findFirst({
+        //   where: { nisNisn: username },
+        // });
+        // if (!user!.nisNisn) throw new Error("email mismatch");
+        // if (user?.password !== password) throw new Error("password mismatch");
+        // return { username: user!.nisNisn, id: user!.id.toString() };
       },
     }),
   ],

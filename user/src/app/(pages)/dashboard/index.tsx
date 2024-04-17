@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { PiStudentFill } from "react-icons/pi";
 import Logout from "./logout";
-import prisma from "@/utils/prisma";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import PageRouteSecure from "@/app/components/pageRouteSecure";
@@ -12,9 +11,9 @@ export default async function Dashboard() {
   if (!session) {
     redirect("/login");
   }
-  const data: any = await prisma.siswa.findUnique({
-    where: { id: parseInt(session.user.name) },
-  });
+  // const data: any = await prisma.siswa.findUnique({
+  //   where: { id: parseInt(session.user.name) },
+  // });
 
   return (
     <PageRouteSecure>
@@ -39,7 +38,7 @@ export default async function Dashboard() {
           <div>
             <div className="text-white font-semibold text-sm flex items-center justify-center text-center gap-2 flex-col sm:flex-row">
               <div className="order-2 sm:order-1 text-end capitalize flex flex-col gap-2">
-                <p>Peserta {data.nama}</p>
+                <p>Peserta {`data.nama`}</p>
                 <Logout />
               </div>
               <div className="text-white bg-info p-2 rounded-lg w-min order-1 sm:order-2">
