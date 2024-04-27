@@ -1,3 +1,4 @@
+import axios from "axios";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -21,12 +22,18 @@ const authOptions: NextAuthOptions = {
           password: string;
         };
 
-        // const user = await prisma.siswa.findFirst({
-        //   where: { nisNisn: username },
-        // });
-        // if (!user!.nisNisn) throw new Error("email mismatch");
-        // if (user?.password !== password) throw new Error("password mismatch");
-        // return { username: user!.nisNisn, id: user!.id.toString() };
+        const { data }: any = await axios.post(
+          `http://localhost:3000/api/loginSiswa`,
+          {
+            username,
+            password,
+          }
+        );
+        if (data.user) {
+          return { username: data!.user.nisNisn, id: data!.user.id.toString() };
+        } else {
+          throw new Error("username password mismatch");
+        }
       },
     }),
   ],
