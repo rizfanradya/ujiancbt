@@ -12,6 +12,7 @@ export default async function Dashboard() {
   if (!session) {
     redirect("/login");
   }
+
   const { data }: any = await axios.post(
     `http://localhost:3000/api/getUserById`,
     {
