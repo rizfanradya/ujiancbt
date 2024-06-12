@@ -9,16 +9,16 @@ import axios from "axios";
 
 export default async function Dashboard() {
   const session: any = await getServerSession();
-  if (!session) {
-    redirect("/login");
-  }
+  // if (!session) {
+  //   redirect("/login");
+  // }
 
-  const { data }: any = await axios.post(
-    `http://localhost:3000/api/getUserById`,
-    {
-      id: parseInt(session.user.name),
-    }
-  );
+  // const { data }: any = await axios.post(
+  //   `http://localhost:3000/api/getUserById`,
+  //   {
+  //     id: parseInt(session.user.name),
+  //   }
+  // );
 
   return (
     <PageRouteSecure>
@@ -43,7 +43,7 @@ export default async function Dashboard() {
           <div>
             <div className="text-white font-semibold text-sm flex items-center justify-center text-center gap-2 flex-col sm:flex-row">
               <div className="order-2 sm:order-1 text-end capitalize flex flex-col gap-2">
-                <p>Peserta {data.user.nama}</p>
+                <p>Peserta {"data.user.nama"}</p>
                 <Logout />
               </div>
               <div className="text-white bg-info p-2 rounded-lg w-min order-1 sm:order-2">

@@ -16,10 +16,10 @@ export default async function SideNav({
   docTitle: string;
   breadcrumbs: { name: string; path: string }[];
 }) {
-  const session: any = await getServerSession();
-  if (!session) {
-    redirect("/login");
-  }
+  // const session: any = await getServerSession();
+  // if (!session) {
+  //   redirect("/login");
+  // }
 
   return (
     <>

@@ -8,9 +8,9 @@ export default async function PageRouteSecure({
   children: ReactNode;
 }) {
   const session: any = await getServerSession();
-  if (!session) {
-    redirect("/login");
-  }
+  // if (!session) {
+  //   redirect("/login");
+  // }
 
   return <>{children}</>;
 }
