@@ -22,12 +22,14 @@ const authOptions: NextAuthOptions = {
           password: string;
         };
 
-        const user = await prisma.admin.findFirst({
-          where: { username },
-        });
-        if (!user?.username) throw new Error("email mismatch");
-        if (user?.password !== password) throw new Error("password mismatch");
-        return { username: user.username, id: user.id.toString() };
+        // const user = await prisma.admin.findFirst({
+        //   where: { username },
+        // });
+        if (username !== "admin") throw new Error("email mismatch");
+        // if (!user?.username) throw new Error("email mismatch");
+        if (password !== "admin") throw new Error("password mismatch");
+        // if (user?.password !== password) throw new Error("password mismatch");
+        return { username: "admin", id: 1 } as any;
       },
     }),
   ],
