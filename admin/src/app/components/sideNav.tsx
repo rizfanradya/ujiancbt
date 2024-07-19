@@ -16,19 +16,19 @@ export default async function SideNav({
   docTitle: string;
   breadcrumbs: { name: string; path: string }[];
 }) {
-  const session: any = await getServerSession();
-  if (!session) {
-    redirect("/login");
-  }
+  // const session: any = await getServerSession();
+  // if (!session) {
+  //   redirect("/login");
+  // }
 
   return (
     <>
       <title>{`Admin - ${docTitle}`}</title>
-      <div className="flex items-center justify-between bg-slate-700 text-white py-5 px-2 md:px-6 fixed w-full z-10">
+      <div className="fixed z-10 flex items-center justify-between w-full px-2 py-5 text-white bg-slate-700 md:px-6">
         <Link href={"/"} className="flex items-center gap-2">
           <Image alt="logo" src={"/tutwuri.png"} width={60} height={60} />
           <div className="text-white">
-            <p className="font-bold text-xl -mb-1 font-sans">
+            <p className="-mb-1 font-sans text-xl font-bold">
               CBT Test Indonesia
             </p>
             <p>CBT Application</p>
@@ -36,7 +36,7 @@ export default async function SideNav({
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-4">
-          <div className="text-info font-semibold sm:text-2xl">AKTIF</div>
+          <div className="font-semibold text-info sm:text-2xl">AKTIF</div>
           <label htmlFor="my-drawer" className="cursor-pointer lg:hidden">
             <RiMenu3Fill size={25} />
           </label>
@@ -47,9 +47,9 @@ export default async function SideNav({
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
 
         <div className="drawer-content">
-          <div className="pt-24 px-3 bg-slate-700">
+          <div className="px-3 pt-24 bg-slate-700">
             <div className="bg-white">
-              <div className="breadcrumbs px-2 border-b border-black/5">
+              <div className="px-2 border-b breadcrumbs border-black/5">
                 <ul>
                   {breadcrumbs.map((doc, index) => (
                     <li className="text-slate-500/80" key={index}>
@@ -60,18 +60,18 @@ export default async function SideNav({
               </div>
 
               <div className="flex">
-                <ul className="menu max-w-72 w-full hidden lg:block border border-black/5 my-4 ml-4 ">
+                <ul className="hidden w-full my-4 ml-4 border menu max-w-72 lg:block border-black/5 ">
                   <NavlinkItems />
                   <Logout />
                 </ul>
-                <div className="pl-7 p-8 border t-10 border-black/5 m-4 h-max w-full overflow-hidden">
+                <div className="w-full p-8 m-4 overflow-hidden border pl-7 t-10 border-black/5 h-max">
                   {children}
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center justify-center bg-slate-700 w-full text-sm">
-              <span className="bg-white my-3 py-2 text-center w-full">
+            <div className="flex items-center justify-center w-full text-sm bg-slate-700">
+              <span className="w-full py-2 my-3 text-center bg-white">
                 CBT TEST Indonesia - Copyright © 2023-2024
               </span>
             </div>
@@ -85,7 +85,7 @@ export default async function SideNav({
             className="drawer-overlay"
           ></label>
 
-          <ul className="menu p-4 w-72 min-h-full bg-base-200 text-base-content dropdown-content py-20">
+          <ul className="min-h-full p-4 py-20 menu w-72 bg-base-200 text-base-content dropdown-content">
             <NavlinkItems />
             <Logout />
           </ul>
