@@ -1,0 +1,25 @@
+{% extends "./components/sidenav.html" %}{% load static %}{% block content %}
+<div class="pb-4 border-b">
+  <h1 class="text-lg font-light">Daftar Pelaksanaan Test</h1>
+</div>
+
+<div class="mt-6 overflow-x-auto">
+  <table class="table">
+    <thead>
+      <tr class="text-[14px] text-black">
+        <th class="font-normal border">No.</th>
+        <th class="font-normal border">Ujian</th>
+        <th class="font-normal border">Kode Soal</th>
+        <th class="font-normal border">Mata Pelajaran</th>
+        <th class="font-normal border">Kelas</th>
+        <th class="font-normal border">Token</th>
+        <th class="font-normal border">Waktu</th>
+        <th class="font-normal border">Durasi</th>
+        <th class="font-normal border">Proktor Pengawas</th>
+        <th class="font-normal border">Catatan</th>
+        <th class="font-normal border">Edit Pengawas | Print</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+{% endblock content %}

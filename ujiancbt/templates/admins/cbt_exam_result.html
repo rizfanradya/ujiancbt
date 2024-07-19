@@ -1,0 +1,92 @@
+{% extends "./components/sidenav.html" %}{% load static %}{% block content %}
+<div class="flex items-center gap-4 text-xl font-light text-slate-500">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="30px"
+    viewBox="0 -960 960 960"
+    width="30px"
+    fill="#64748b"
+  >
+    <path
+      d="M640-640v-120H320v120h-80v-200h480v200h-80Zm-480 80h640-640Zm560 100q17 0 28.5-11.5T760-500q0-17-11.5-28.5T720-540q-17 0-28.5 11.5T680-500q0 17 11.5 28.5T720-460Zm-80 260v-160H320v160h320Zm80 80H240v-160H80v-240q0-51 35-85.5t85-34.5h560q51 0 85.5 34.5T880-520v240H720v160Zm80-240v-160q0-17-11.5-28.5T760-560H200q-17 0-28.5 11.5T160-520v160h80v-80h480v80h80Z"
+    /></svg
+  >|<span>Hasil Ujian</span>
+</div>
+
+<form method="POST">
+  {% csrf_token %}
+  <div class="flex flex-col gap-4 py-4 my-4 border-y">
+    <div>
+      <label class="text-base font-light label label-text">Jenis Tes</label>
+      <select
+        class="w-full rounded-none select select-bordered"
+        name="testType"
+      >
+        <option>SEMUA</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-base font-light label label-text">Semester</label>
+      <select
+        class="w-full rounded-none select select-bordered"
+        name="semester"
+      >
+        <option>SEMUA</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-base font-light label label-text">Jurusan</label>
+      <select class="w-full rounded-none select select-bordered" name="major">
+        <option>IPS</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-base font-light label label-text">Kelas</label>
+      <select class="w-full rounded-none select select-bordered" name="class">
+        <option>IPS</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-base font-light label label-text">
+        Mata Pelajaran
+      </label>
+      <select
+        class="w-full rounded-none select select-bordered"
+        name="subjects"
+      >
+        <option>IPA - ILMU PENGETAHUAN ALAM</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-end gap-4">
+    <button
+      type="submit"
+      class="font-light text-white rounded-none btn btn-accent btn-sm"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="20px"
+        viewBox="0 -960 960 960"
+        width="20px"
+        fill="#fff"
+      >
+        <path
+          d="M640-640v-120H320v120h-80v-200h480v200h-80Zm-480 80h640-640Zm560 100q17 0 28.5-11.5T760-500q0-17-11.5-28.5T720-540q-17 0-28.5 11.5T680-500q0 17 11.5 28.5T720-460Zm-80 260v-160H320v160h320Zm80 80H240v-160H80v-240q0-51 35-85.5t85-34.5h560q51 0 85.5 34.5T880-520v240H720v160Zm80-240v-160q0-17-11.5-28.5T760-560H200q-17 0-28.5 11.5T160-520v160h80v-80h480v80h80Z"
+        />
+      </svg>
+      <span>Print</span>
+    </button>
+    {% comment %}
+    <div class="font-light rounded-none btn btn-outline btn-sm">
+      <IoIosClose class="font-bold" size="{25}" />
+      <span>Tutup</span>
+    </div>
+    {% endcomment %}
+  </div>
+</form>
+{% endblock content %}
