@@ -18,16 +18,16 @@
     <div class="pt-5 card-body pm-5">
       <div class="mt-5 pl-9 pr-9 m5-5">
         <h1
-          class="mb-1 text-2xl font-normal card-title"
+          class="mb-1 text-2xl font-normal text-gray-500 card-title"
           style="font-family: Archivo Narrow"
         >
           Selamat Datang
         </h1>
-        <p class="mb-4 text-sm font-light">
+        <p class="mb-4 text-sm font-light text-gray-500">
           Silahkan login menggunakan Username dan Password yang anda miliki
         </p>
 
-        <form class="flex flex-col gap-5" method="POST">
+        <form class="flex flex-col gap-5 font-light" method="POST">
           {% csrf_token %}
           <div
             class="flex items-center justify-between gap-3 border-b w-30 mt-30"
@@ -118,32 +118,41 @@
             <select
               autocomplete="off"
               required
-              class="w-full appearance-none cursor-pointer"
+              class="w-full text-gray-500 appearance-none cursor-pointer"
             >
               <option class="opacity-10 blur-10%">PILIH MAPEL</option>
               <option value="akm2023">AKM 2024</option>
             </select>
           </div>
 
-          <div class="flex flex-col items-center justify-center gap-4 mt-4">
+          <div class="flex flex-col items-center justify-center gap-2 mt-4">
             <button
               type="submit"
               class="w-full text-white btn btn-info rounded-2xl"
             >
               LOGIN
             </button>
+
+            <div
+              class="w-full text-white btn bg-[#ec971f] rounded-2xl lg:hidden"
+              onclick="window.location.reload()"
+            >
+              Refresh
+            </div>
           </div>
         </form>
 
-        <div class="pt-2 text-xs italic font-semibold text-center text-red-500">
-          <span class="flex items-center justify-center gap-14">
-            <span>*</span>
-            <span>Username Wajib Diisi</span>
-          </span>
-          <span class="flex items-center justify-center gap-14">
-            <span>*</span>
-            <span>Password Wajib Diisi</span>
-          </span>
+        <div
+          class="flex justify-center gap-10 pt-2 text-xs italic font-semibold text-red-500"
+        >
+          <div>
+            <div>*</div>
+            <div>*</div>
+          </div>
+          <div>
+            <div>Username Wajib Diisi</div>
+            <div>Password Wajib Diisi</div>
+          </div>
         </div>
       </div>
     </div>
