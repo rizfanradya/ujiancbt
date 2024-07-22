@@ -1,1 +1,1 @@
-screen -S webstaida -d -m bash run.sh
+screen -S ujiancbt -d -m bash run.sh
