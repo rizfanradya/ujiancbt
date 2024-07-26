@@ -1,5 +1,5 @@
 {% extends "../base.html" %} {% load static %} {% block body %}
-<div class="pb-6">
+<div class="pb-6" id="fullscreenContent">
   <div class="bg-[url('{% static "img/bglogin.png" %}')] bg-no-repeat bg-cover
   w-full sm:h-56 h-96 border-b-4 border-slate-400 absolute -z-10">
 
@@ -99,4 +99,39 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const fullscreenContent = document.getElementById("fullscreenContent");
+
+    function enterFullscreen(element) {
+      try {
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+          element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+          element.msRequestFullscreen();
+        } else {
+          alert("Fullscreen mode is not supported in this browser.");
+        }
+      } catch (err) {
+        alert(
+          `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+        );
+      }
+    }
+
+    // Prompt user to enter fullscreen mode
+    if (
+      confirm("Do you want to enter fullscreen mode for a better experience?")
+    ) {
+      enterFullscreen(fullscreenContent);
+    } else {
+      alert("You can enter fullscreen mode anytime by pressing F11.");
+    }
+  });
+</script>
 {% endblock body %}
