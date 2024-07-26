@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Admin
 import openpyxl
 from datetime import datetime
+from django.views.decorators.cache import never_cache
 
 
 @login_not_required('dashboard')
