@@ -9,6 +9,7 @@ from datetime import datetime
 from django.views.decorators.cache import never_cache
 
 
+@never_cache
 @login_not_required('dashboard')
 def user_login_view(request: HttpRequest):
     template_name = 'user/login.html'
@@ -32,11 +33,13 @@ def user_login_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 def user_logout_view(request: HttpRequest):
     logout(request)
     return redirect('login')
 
 
+@never_cache
 @login_required(login_url='login')
 @user_passes_test(is_not_staff, login_url='admin_login')
 def user_dashboard_view(request: HttpRequest):
@@ -47,6 +50,7 @@ def user_dashboard_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_not_required('admin_dashboard')
 def admin_login_view(request: HttpRequest):
     template_name = 'admins/login.html'
@@ -70,11 +74,13 @@ def admin_login_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 def admin_logout_view(request: HttpRequest):
     logout(request)
     return redirect('admin_login')
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def admin_dashboard_view(request: HttpRequest):
@@ -89,6 +95,7 @@ def admin_dashboard_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def setting_server_view(request: HttpRequest):
@@ -104,6 +111,7 @@ def setting_server_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def user_management_view(request: HttpRequest):
@@ -119,6 +127,7 @@ def user_management_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def download_user_management_view(request):
@@ -148,6 +157,7 @@ def download_user_management_view(request):
     return response
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def server_sekolah_view(request: HttpRequest):
@@ -162,6 +172,7 @@ def server_sekolah_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def backup_and_restore_view(request: HttpRequest):
@@ -175,6 +186,7 @@ def backup_and_restore_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def list_question_bank_view(request: HttpRequest):
@@ -189,6 +201,7 @@ def list_question_bank_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def supporting_files_view(request: HttpRequest):
@@ -209,6 +222,7 @@ def supporting_files_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def cbt_exam_result_view(request: HttpRequest):
@@ -223,6 +237,7 @@ def cbt_exam_result_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def list_of_attendees_view(request: HttpRequest):
@@ -237,6 +252,7 @@ def list_of_attendees_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def class_list_view(request: HttpRequest):
@@ -251,6 +267,7 @@ def class_list_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def list_of_subjects_view(request: HttpRequest):
@@ -265,6 +282,7 @@ def list_of_subjects_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def exam_schedule_data_view(request: HttpRequest):
@@ -279,6 +297,7 @@ def exam_schedule_data_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def list_of_exam_schedules_view(request: HttpRequest):
@@ -293,6 +312,7 @@ def list_of_exam_schedules_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def test_group_view(request: HttpRequest):
@@ -306,6 +326,7 @@ def test_group_view(request: HttpRequest):
     return render(request, template_name, extra_context)
 
 
+@never_cache
 @login_required(login_url='admin_login')
 @user_passes_test(is_staff, login_url='login')
 def list_of_participants_view(request: HttpRequest):
