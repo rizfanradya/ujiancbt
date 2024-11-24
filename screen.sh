@@ -1,1 +1,0 @@
-screen -S ujiancbt -d -m bash run.sh
