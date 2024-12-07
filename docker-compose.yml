@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_USER: rcbtsync
+      MYSQL_DATABASE: rcbtsync
+      MYSQL_ROOT_PASSWORD: urd1NTvpF9s5AayVCt3Jh0wgnxAk0L30IwIEVvAz3Zwq0eEMKS
+      MYSQL_PASSWORD: urd1NTvpF9s5AayVCt3Jh0wgnxAk0L30IwIEVvAz3Zwq0eEMKS
+    ports:
+      - "33064:3306"
+    volumes:
+      - db_data_mysql:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+      - backend_uploads:/app/uploads
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    restart: always
+
+volumes:
+  db_data_mysql:
+  backend_uploads:
