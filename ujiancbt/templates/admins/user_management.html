@@ -1,0 +1,83 @@
+{% extends "./components/sidenav.html" %} {% load static %} {% block content %}
+<div class="flex items-center justify-between pb-4 border-b">
+  <h1 class="text-lg font-light">Data User</h1>
+  <div class="flex items-center justify-center gap-3">
+    <div
+      class="text-sm font-light text-white transition rounded-none btn bg-blue-600/75 hover:bg-blue-700/75 btn-sm"
+    >
+      <i class="fa fa-plus-circle" class="text-[20px]"></i>
+      <span>Tambah User</span>
+    </div>
+    <a
+      href="{% url 'download_user_data' %}"
+      class="text-sm font-light text-white transition rounded-none btn bg-blue-600/75 hover:bg-blue-700/75 btn-sm"
+    >
+      <i class="fas fa-cloud-download-alt" class="text-[20px]"></i>
+      <span>Download Data</span>
+    </a>
+    <div class="p-1 text-gray-700 border cursor-pointer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20px"
+        height="20px"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="m15 3l2.3 2.3l-2.89 2.87l1.42 1.42L18.7 6.7L21 9V3zM3 9l2.3-2.3l2.87 2.89l1.42-1.42L6.7 5.3L9 3H3zm6 12l-2.3-2.3l2.89-2.87l-1.42-1.42L5.3 17.3L3 15v6zm12-6l-2.3 2.3l-2.87-2.89l-1.42 1.42l2.89 2.87L15 21h6z"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="mt-6 overflow-x-auto">
+  <table class="table">
+    <thead>
+      <tr class="text-[14px] text-black">
+        <th class="font-normal border">No</th>
+        <th class="font-normal border">User Name</th>
+        <th class="font-normal border">Nama</th>
+        <th class="font-normal border">Alamat</th>
+        <th class="font-normal border">Level</th>
+        <th class="font-normal border">Status</th>
+        <th class="font-normal border">Edit | Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in user_info %}
+      <tr>
+        <td class="font-light text-center border">{{ forloop.counter }}</td>
+        <td class="font-light border">{{ user.admin.username }}</td>
+        <td class="font-light border">{{ user.admin.first_name }}</td>
+        <td class="font-light border">{{ user.address }}</td>
+        <td class="font-light uppercase border">{{ user.role }}</td>
+        <td class="font-light border">
+          <div
+            class="font-normal text-white rounded-none cursor-default btn btn-sm {% if user.status %} btn-accent {% else %} btn-error {% endif %}"
+          >
+            {% if user.status %} AKTIF {% else %} NON AKTIF {% endif %}
+          </div>
+        </td>
+        <td class="flex items-center gap-2 font-light border">
+          <div class="text-white rounded-none btn btn-sm btn-info">
+            <i class="fas fa-edit" class="text-[20px]"></i>
+          </div>
+          <div class="text-white rounded-none btn btn-sm btn-error">
+            <i class="far fa-trash-alt" class="text-[20px]"></i>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="flex flex-col gap-2 p-6 mt-6 bg-slate-100">
+  <span class="text-xl font-light text-purple-600"> SMA ABDUSSALAM-CBT </span>
+  <span class="text-sm font-light">
+    <span class="font-semibold">Fitur Manajemen User : </span>Edit, Tambah dan
+    Hapus daftar User, tentukan Hak Akses Admin / Guru dan aktivasi Akses
+  </span>
+</div>
+{% endblock content %}

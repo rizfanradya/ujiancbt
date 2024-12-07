@@ -1,0 +1,30 @@
+{% extends "./components/sidenav.html" %}{% load static %}{% block content %}
+<div class="flex items-center justify-between pb-4 border-b">
+  <h1 class="text-lg font-light">Daftar Sekolah</h1>
+  <div class="flex items-center justify-center gap-3">
+    <div
+      class="text-sm font-light text-white transition rounded-none btn bg-blue-600/75 hover:bg-blue-700/75 btn-sm"
+    >
+      <i class="fa fa-plus-circle" class="text-[15px]"></i>
+      <span>Tambah Sekolah</span>
+    </div>
+  </div>
+</div>
+
+<div class="mt-6 overflow-x-auto">
+  <table class="table">
+    <thead>
+      <tr class="text-[14px] text-black">
+        <th class="font-normal border">No.</th>
+        <th class="font-normal border">Kode Sekolah</th>
+        <th class="font-normal border">Nama Sekolah</th>
+        <th class="font-normal border">Alamat</th>
+        <th class="font-normal border">Status Sinkron</th>
+        <th class="font-normal border">Reset Sinkron</th>
+        <th class="font-normal border">Status Server</th>
+        <th class="font-normal border">Tindakan</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+{% endblock content %}
