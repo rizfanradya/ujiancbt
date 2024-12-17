@@ -19,27 +19,19 @@ services:
       timeout: 5s
       retries: 5
 
-  backend:
+  ujiancbt:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
-    restart: always
-    volumes:
-      - backend_uploads:/app/uploads
-    depends_on:
-      mysql:
-        condition: service_healthy
-
-  frontend:
-    build:
-      context: ./frontend
+      context: .
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
     restart: always
+    volumes:
+      - uploads:/app/uploads
+    depends_on:
+      mysql:
+        condition: service_healthy
 
 volumes:
   db_data_mysql:
-  backend_uploads:
+  uploads:
